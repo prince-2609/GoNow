@@ -48,7 +48,7 @@ public class QaBrowser extends QaRobot {
 //	@SuppressWarnings("deprecation")
 	private void launchChrome() throws MalformedURLException 
 	{
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\lib\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\lib\\chromedriverUpdate.exe");
 		driver = (WebDriver) new ChromeDriver();
 	}
 	

@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -69,7 +70,7 @@ public class TestBase extends QaExtentReport {
 		}
 		if (ccode.equalsIgnoreCase("GoNow")) 
 		{
-			browser.launchBrowser("https:"+URL+"");
+			browser.launchBrowser("http:"+URL+"");
 		}
 //		if (ccode.equalsIgnoreCase("bn")) {
 //			browser.launchBrowser("http://erp-staging/algosaibib2c/");
@@ -104,7 +105,6 @@ public class TestBase extends QaExtentReport {
 	public static List<WebElement> listofautosuggestion(By suggestiontxt, String txt, String city_name, By d)throws InterruptedException 
 	{
 		QaBrowser.driver.findElement(d).sendKeys(txt);
-		QaBrowser.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		ArrayList<WebElement> autosuggestions = (ArrayList<WebElement>) QaBrowser.driver.findElements(suggestiontxt);
 		// System.out.println(autosuggestions.toString());
 		for (WebElement autosuggestion : autosuggestions) 
@@ -129,7 +129,6 @@ public class TestBase extends QaExtentReport {
 	{
 		QaBrowser.driver.findElement(a).click();
 		QaBrowser.driver.findElement(a).clear();
-		QaBrowser.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		ArrayList<WebElement> autosuggs = (ArrayList<WebElement>) QaBrowser.driver.findElements(sugtxt);
 		
 		for (WebElement autosun : autosuggs) 
@@ -155,8 +154,6 @@ public class TestBase extends QaExtentReport {
 		QaBrowser.driver.findElement(b).sendKeys(TypeName);
 //		System.out.println("TypeName "+TypeName);
 		Thread.sleep(3000);
-		
-//		QaBrowser.driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		ArrayList<WebElement> autoss = (ArrayList<WebElement>) QaBrowser.driver.findElements(stxt);
 //		System.out.println(autoss);
 		// System.out.println(autosuggestions.toString());
@@ -171,7 +168,7 @@ public class TestBase extends QaExtentReport {
 			} 
 			else 
 			{
-				System.out.println("not equal");
+//				System.out.println("not equal");
 			}
 		}
 
@@ -206,7 +203,6 @@ public class TestBase extends QaExtentReport {
 	{
 		QaBrowser.driver.findElement(d4).clear();
 		QaBrowser.driver.findElement(d4).sendKeys(txt4);
-		QaBrowser.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		ArrayList<WebElement> autosuggestions = (ArrayList<WebElement>) QaBrowser.driver.findElements(suggestiontxt4);
 		// System.out.println(autosuggestions.toString());
 		for (WebElement autosuggestion : autosuggestions) 
@@ -227,6 +223,31 @@ public class TestBase extends QaExtentReport {
 		return autosuggestions;
 	}
 
+	public static List<WebElement> listofautosuggestion5(By suggestiontxt5, String txt5, String city_name5, By d5)throws InterruptedException 
+	{
+		QaBrowser.driver.findElement(d5).clear();
+		QaBrowser.driver.findElement(d5).sendKeys(txt5);
+		ArrayList<WebElement> autosuggestions = (ArrayList<WebElement>) QaBrowser.driver.findElements(suggestiontxt5);
+//		 System.out.println(autosuggestions.toString());
+		for (WebElement autosuggestion : autosuggestions) 
+		{
+//			System.out.println(autosuggestion.getText());
+			if (autosuggestion.getText().equalsIgnoreCase(city_name5)) 
+			{
+//				System.out.println("equal");
+				autosuggestion.click();
+				autosuggestion.click();
+				break;
+			} 
+			else 
+			{
+//				System.out.println("not equal");
+			}
+		}
+
+		return autosuggestions;
+	}
+	
 	// discount coupon
 	public static void DiscountCoupon(String Locator, String msg, String amountxpath, String couponno,
 			String disvalueofexcel) throws Exception {
@@ -279,7 +300,7 @@ public class TestBase extends QaExtentReport {
 		QaRobot.ClickOnElement("send_mail");
 		QaExtentReport.test.log(Status.INFO,"<b><i>Clicked on send email button</i></b>");
 
-		QaRobot.explicitwaitalert(100);
+//		QaRobot.explicitwaitalert(100);
 
 		// Switching to Alert
 		Alert alert = QaBrowser.driver.switchTo().alert();

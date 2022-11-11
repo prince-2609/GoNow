@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.List;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -66,7 +67,7 @@ public class QaRobot extends QaExtentReport
 	public static void ScreenshotMethod(String text,String text1) throws IOException 
 	{
 		Date date = new Date();
-		DateFormat d = new SimpleDateFormat("MM-dd-yy & HH-mm-ss");
+		DateFormat d = new SimpleDateFormat("dd-MM-yy & HH-mm-ss");
 		String NewDate = d.format(date);
 		
 		TakesScreenshot ts = (TakesScreenshot)QaBrowser.driver;
