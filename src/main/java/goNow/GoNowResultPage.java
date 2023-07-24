@@ -674,9 +674,7 @@ public class GoNowResultPage
 	public static void ResultPageForFlight_Hotel(String Applyfilter,String StarRating,String PropertyType,String RateType,String ChooseAnotherFlight,
 			String FlightFilter,String FareType,String AirLine) throws Exception
 	{
-		QaRobot.ClickOnElement("FinalSearchFH");
-		QaExtentReport.test.log(Status.INFO, "<b><i>Clicked on Final Search</i></b>");
-		Thread.sleep(15000);
+		
 		
 		String url = QaBrowser.driver.getCurrentUrl();
 		String[] uid = url.split("=");

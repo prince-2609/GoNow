@@ -3,12 +3,12 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="goNow.GoNowHotel">
+      <class name="goNow.GoNowFlight_Hotel">
         <methods>
-          <include name="v12stagingforhotel" invocation-numbers="0"/>
           <include name="afterMetod"/>
+          <include name="v12stagingforhotel" invocation-numbers="1"/>
         </methods>
-      </class> <!-- goNow.GoNowHotel -->
+      </class> <!-- goNow.GoNowFlight_Hotel -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
